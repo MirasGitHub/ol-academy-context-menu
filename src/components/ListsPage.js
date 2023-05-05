@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './ListsPage.css'
 
 
-const ContextMenu = (props) => {
+const ContextMenu = ({ handleClose, top, left, context }) => {
 
   const contextMenuRef = useRef(null);
 
@@ -15,7 +15,7 @@ const ContextMenu = (props) => {
       e.preventDefault();  
       if(contextMenuRef.current){
         if(!contextMenuRef.current.contains(e.target) ){
-          props.handleClose();
+          handleClose();
         }
       }
       
@@ -26,7 +26,7 @@ const ContextMenu = (props) => {
     const handleClick = (e) => {
       if(contextMenuRef.current){
         if(!contextMenuRef.current.contains(e.target)){
-          props.handleClose();
+          handleClose();
         }
       }
     }
@@ -59,8 +59,8 @@ const ContextMenu = (props) => {
     paddingTop: '5px',
     color: "2F323A",
     borderRadius: '5px',
-    top: props.top,
-    left: props.left,
+    top: top,
+    left: left,
   }
 
   return (
@@ -68,7 +68,7 @@ const ContextMenu = (props) => {
         <div style={styles} ref={contextMenuRef}>
 
           {
-            props.context
+            context
           }
 
         </div>
