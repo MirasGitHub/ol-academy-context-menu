@@ -80,33 +80,6 @@ const ContextMenu = (props) => {
   
 }
 
-const ListItem = (props) => {
-
-  
-
-  /* 
-  <li style={{backgroundColor: '#DAFFEF', margin: '8px'}}>Task 1</li>
-            <li style={{backgroundColor: '#D0FFD6', margin: '8px'}}>Task 2</li>
-            <li style={{backgroundColor: '#D5E2BC', margin: '8px'}}>Task 3</li>
-            <li style={{backgroundColor: '#A6979C', margin: '8px'}}>Task 4</li>
-            <li style={{backgroundColor: '#D3C0D2', margin: '8px'}}>Task 5</li>
-            */
-
-  return (
-    <div>
-      <ul>
-      {
-        props.listItems.map(listItem => {
-          <li key={listItem.id}>
-            <span>{listItem.text}</span>
-            hi
-          </li>
-        })
-      }
-      </ul>
-    </div>
-  )
-}
 
 const ListsPage = (props) => {
 
