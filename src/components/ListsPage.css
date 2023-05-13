@@ -1,16 +1,14 @@
-body{
-    padding-left: 20px;
+body {
+	padding-left: 20px;
 }
 
-
-
-.btnsContainer{
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
+.context-menu h1 {
+	color: #c47ac0;
+	text-align: center;
 }
 
-.btnsContainer > button {
-    margin: 10px;
+ul li {
+	height: 50px;
+	margin: 5px;
+	border-radius: 5px;
 }
-

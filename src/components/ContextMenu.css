@@ -1,0 +1,24 @@
+.contextMenuContainer {
+	position: absolute;
+	width: 150px;
+	height: 180px;
+	background-color: pink;
+	text-align: center;
+	padding-top: 5px;
+	color: 2F323A;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.btnsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.btnsContainer > button {
+	margin: 0 3px 10px 3px;
+}

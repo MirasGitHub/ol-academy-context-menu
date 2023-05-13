@@ -1,119 +1,88 @@
-import React, { useEffect, useRef, useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './ListsPage.css'
-import { ContextMenu } from './ContextMenu';
+import React, { useState } from "react";
 
+import { ContextMenu } from "./ContextMenu";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./ListsPage.css";
+import ListItem from "./ListItem";
 
+const listItems = [
+	{
+		id: 1,
+		text: "text 1",
+		backgroundColor: "#C179B9",
+	},
+	{
+		id: 2,
+		text: "text 2",
+		backgroundColor: "#A42CD6",
+	},
+	{
+		id: 3,
+		text: "text 3",
+		backgroundColor: "#502274",
+	},
+	{
+		id: 4,
+		text: "text 4",
+		backgroundColor: "#A1CDF4",
+	},
+	{
+		id: 5,
+		text: "text 5",
+		backgroundColor: "#6E8898",
+	},
+];
 
+const ListsPage = ({ handleClick, item, id }) => {
+	const [isShow, setIsShow] = useState(false);
 
-const ListsPage = (props) => {
+	const [points, setPoints] = useState({
+		x: 50,
+		y: 50,
+	});
 
-  const listItems = [
-    {
-      id: 1,
-      text: 'text 1',
-    },
-    {
-      id: 2,
-      text: 'text 2',
-    },
-    {
-      id: 3,
-      text: 'text 3',
-    },
-    {
-      id: 4,
-      text: 'text 4',
-    },
-    {
-      id: 5,
-      text: 'text 5',
-    },
-  ];
+	const [contextMenu, setContextMenu] = useState("");
 
-// show the context menu
-  const [isShow, setIsShow] = useState(false);
+	const handleEdit = () => {
+		console.log("Edit");
+		setIsShow(false);
+	};
 
-//Set the Context Menu Location on the list items
-  const [points, setPoints] = useState({
-    x: 50,
-    y: 50,
-  })
+	const handleRemove = (id) => {
+		console.log(id);
+		console.log("remove");
+		setIsShow(false);
+	};
 
-  const [context, setContext] = useState('')
+	return (
+		<div>
+			<div className="context-menu">
+				<h1>Context Menu Task</h1>
 
-  const handleEdit = () => {
-    console.log("Edit")
-  }
-
-  const handleRemove = () => {
-    console.log("remove")
-    setIsShow(false)
-  }
-
-  //Style ot the List Item
-  const listItemStyle = {
-    backgroundColor: '#E39EC1',
-    borderRadius: '3px',
-    padding: '10px',
-    margin: '5px',
-  }
-
-  
-
-  return (
-    <div>
-
-      <div className='context-menu'>
-        <h1 style={{color:'#C47AC0', textAlign: 'center'}}>Context Menu Task</h1>
-
-          {
-          isShow && 
-            <ContextMenu 
-              context={context}
-              listItems={listItems}
-              key={listItems.id} 
-              handleClose={()=> setIsShow(false)} 
-              handleClick={props.handleClick} top={points.y} left={points.x}/> 
-            
-          } 
-
-      </div>
-
-          <ul>
-            {
-              listItems.map((item) => {
-               return (
-                <li key={item.id} style={listItemStyle}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  setIsShow(true);
-                  setPoints({
-                    x: e.pageX,
-                    y: e.pageY,
-                  });
-                  setContext(item.text)
-                  console.log(item.text)
-                  }} 
-                >
-
-                  {item.text}
-
-                </li>
-               )
-              })
-            }
-          </ul>
-
-        <div className='btnsContainer'>
-          <button onClick={handleEdit} className='btn btn-info'>Edit</button>
-          <button onClick={handleRemove} className='btn btn-danger'>Remove</button>
-        </div>
-    </div>
-  )
-}
-
-
+				{isShow && (
+					<ContextMenu
+						contextMenu={contextMenu}
+						listItems={listItems.id}
+						key={listItems.id}
+						item={listItems.map((item) => item.id)}
+						handleClose={() => setIsShow(false)}
+						handleClick={handleClick}
+						top={points.y}
+						left={points.x}
+						handleRemove={handleRemove}
+						handleEdit={handleEdit}
+					/>
+				)}
+			</div>
+			<ListItem
+				listItems={listItems}
+				setIsShow={setIsShow}
+				setPoints={setPoints}
+				setContextMenu={setContextMenu}
+			/>
+		</div>
+	);
+};
 
 export default ListsPage;
