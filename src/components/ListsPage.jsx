@@ -34,7 +34,7 @@ const listItems = [
 	},
 ];
 
-const ListsPage = ({ handleClick, item, id }) => {
+const ListsPage = ({ handleClick }) => {
 	const [isShow, setIsShow] = useState(false);
 
 	const [points, setPoints] = useState({

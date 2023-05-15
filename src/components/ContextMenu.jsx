@@ -38,7 +38,7 @@ const ContextMenu = ({
 
 			document.removeEventListener("contextmenu", handleRightMouseClick);
 		};
-	}, []);
+	});
 
 	return (
 		<div>
