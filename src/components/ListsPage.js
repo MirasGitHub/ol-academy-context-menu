@@ -44,14 +44,13 @@ const ListsPage = ({ handleClick, item, id }) => {
 
 	const [contextMenu, setContextMenu] = useState("");
 
-	const handleEdit = () => {
-		console.log("Edit");
+	const handleEdit = (id) => {
+		console.log("edit", id);
 		setIsShow(false);
 	};
 
 	const handleRemove = (id) => {
-		console.log(id);
-		console.log("remove");
+		console.log("remove", id);
 		setIsShow(false);
 	};
 
@@ -63,9 +62,6 @@ const ListsPage = ({ handleClick, item, id }) => {
 				{isShow && (
 					<ContextMenu
 						contextMenu={contextMenu}
-						listItems={listItems.id}
-						key={listItems.id}
-						item={listItems.map((item) => item.id)}
 						handleClose={() => setIsShow(false)}
 						handleClick={handleClick}
 						top={points.y}

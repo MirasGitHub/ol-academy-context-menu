@@ -9,7 +9,6 @@ const ContextMenu = ({
 	contextMenu,
 	handleEdit,
 	handleRemove,
-	item,
 }) => {
 	const contextMenuRef = useRef(null);
 
@@ -44,20 +43,16 @@ const ContextMenu = ({
 	return (
 		<div>
 			<div
-				key={item.id}
 				style={{ top: top, left: left }}
 				className="contextMenuContainer"
 				ref={contextMenuRef}
 			>
 				{contextMenu}
 				<div className="btnsContainer">
-					<button onClick={handleEdit} className="btn btn-info">
+					<button onClick={() => handleEdit()} className="btn btn-info">
 						Edit
 					</button>
-					<button
-						onClick={() => handleRemove(item.id)}
-						className="btn btn-danger"
-					>
+					<button onClick={() => handleRemove()} className="btn btn-danger">
 						Remove
 					</button>
 				</div>

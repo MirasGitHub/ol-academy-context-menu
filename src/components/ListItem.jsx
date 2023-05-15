@@ -1,12 +1,6 @@
 import React from "react";
 
-const ListItem = ({
-	item,
-	setIsShow,
-	setPoints,
-	setContextMenu,
-	listItems,
-}) => {
+const ListItem = ({ setIsShow, setPoints, setContextMenu, listItems }) => {
 	return (
 		<div>
 			<ul>
